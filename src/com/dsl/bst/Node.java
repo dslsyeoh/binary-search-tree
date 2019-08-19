@@ -1,4 +1,4 @@
-package com.dsl.binary.tree;
+package com.dsl.bst;
 
 public class Node implements Comparable<Integer>
 {

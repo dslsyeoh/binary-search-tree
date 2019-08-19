@@ -1,4 +1,4 @@
-package com.dsl.binary.tree;
+package com.dsl.bst;
 
 import java.util.List;
 import java.util.Objects;
