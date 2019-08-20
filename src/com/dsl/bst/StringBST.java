@@ -12,7 +12,7 @@ class StringBST extends GenericBST<String>
 {
     StringBST()
     {
-        super(String::equals, (source, target) -> source.compareToIgnoreCase(target) < 0, (source, target) -> source.compareToIgnoreCase(target) >= 0);
+        super(String::equals, (source, target) -> source.compareToIgnoreCase(target) < 0, (source, target) -> source.compareToIgnoreCase(target) > 0);
     }
 
     @Override
@@ -20,7 +20,7 @@ class StringBST extends GenericBST<String>
     {
         System.out.println("\n========================================= BEGIN BST FOR STRING DEMO =========================================");
         // construct binary search tree
-        List<String> bst = Arrays.asList("this", "is", "demo", "binary", "search", "tree", "in", "string", "throne", "trex");
+        List<String> bst = Arrays.asList("this", "is", "demo", "binary", "search", "tree", "in", "string", "throne", "trex", "is");
         constructBST(bst);
 
         // print initial binary search tree
