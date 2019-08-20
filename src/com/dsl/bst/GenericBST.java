@@ -61,11 +61,11 @@ abstract class GenericBST<T>
     {
         if(Objects.nonNull(root))
         {
-            GenericNode<T> child = lessThan.eval(root.getValue(), value) ? root.getRight() : root.getLeft() ;
-            if(Objects.nonNull(child))
+            GenericNode<T> leaf = lessThan.eval(root.getValue(), value) ? root.getRight() : root.getLeft() ;
+            if(Objects.nonNull(leaf))
             {
-                if(isEqual.eval(child.getValue(), value)) return root;
-                return findRoot(child, value);
+                if(isEqual.eval(leaf.getValue(), value)) return root;
+                return findRoot(leaf, value);
             }
         }
         return null;
