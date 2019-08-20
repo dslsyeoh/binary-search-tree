@@ -1,9 +1,12 @@
+/*
+ * Owned by Steven Yeoh
+ * Copyright (c) 2019.
+ */
+
 package com.dsl.bst;
 
 import java.util.List;
 import java.util.Objects;
-
-import static java.lang.System.out;
 
 abstract class GenericBST<T>
 {
@@ -88,24 +91,24 @@ abstract class GenericBST<T>
 
     void print(T value)
     {
-        out.println("================================= BEGIN PRINT BINARY SEARCH TREE =================================");
+        System.out.println("================================= BEGIN PRINT BINARY SEARCH TREE =================================");
         printBST("root", find(root, value));
-        out.println("================================== END PRINT BINARY SEARCH TREE ==================================");
+        System.out.println("================================== END PRINT BINARY SEARCH TREE ==================================");
 
     }
 
     private void printBST(String text)
     {
-        out.println("================================= BEGIN PRINT BINARY SEARCH TREE =================================");
+        System.out.println("================================= BEGIN PRINT BINARY SEARCH TREE =================================");
         printBST(text, root);
-        out.println("================================== END PRINT BINARY SEARCH TREE ==================================");
+        System.out.println("================================== END PRINT BINARY SEARCH TREE ==================================");
     }
 
     private void printBST(String text, GenericNode<T> root)
     {
         if(Objects.nonNull(root))
         {
-            out.println(String.format("%s=%s", text, root.getValue()));
+            System.out.println(String.format("%s=%s", text, root.getValue()));
             printBST(text.concat(" left"), root.getLeft());
             printBST(text.concat(" right"), root.getRight());
         }
@@ -113,18 +116,18 @@ abstract class GenericBST<T>
 
     void validate(List<T> validateNode)
     {
-        out.println("================================= BEGIN VALIDATE BINARY SEARCH TREE =================================");
+        System.out.println("================================= BEGIN VALIDATE BINARY SEARCH TREE =================================");
         validateNode.forEach(node -> {
             if(node instanceof Integer)
             {
-                out.println(String.format("Node value %d in binary search tree? %s", (Integer)node, hasNode(node) ? "Yes" : "No"));
+                System.out.println(String.format("Node value %d in binary search tree? %s", (Integer)node, hasNode(node) ? "Yes" : "No"));
             }
             else if(node instanceof String)
             {
-                out.println(String.format("Node in binary search tree has %s? %s", String.valueOf(node), hasNode(node) ? "Yes" : "No"));
+                System.out.println(String.format("Node in binary search tree has %s? %s", String.valueOf(node), hasNode(node) ? "Yes" : "No"));
             }
         });
-        out.println("================================== END VALIDATE BINARY SEARCH TREE ==================================");
+        System.out.println("================================== END VALIDATE BINARY SEARCH TREE ==================================");
 
     }
 

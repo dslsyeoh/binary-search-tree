@@ -1,7 +1,11 @@
+/*
+ * Owned by Steven Yeoh
+ * Copyright (c) 2019.
+ */
+
 package com.dsl.bst;
 
-
-public class GenericNode<T>
+class GenericNode<T>
 {
     private T value;
     private GenericNode<T> left;

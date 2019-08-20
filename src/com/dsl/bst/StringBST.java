@@ -1,3 +1,8 @@
+/*
+ * Owned by Steven Yeoh
+ * Copyright (c) 2019.
+ */
+
 package com.dsl.bst;
 
 import java.util.Arrays;
