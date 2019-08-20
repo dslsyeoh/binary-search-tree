@@ -3,6 +3,7 @@ Initial commit
 Binary search tree for Integer
 
 Functionality
+-
 1. Initialize construct BST
 2. Single/Bulk insertions
 3. Single/Bulk deletions
