@@ -7,7 +7,7 @@ import static java.lang.System.out;
 
 abstract class GenericBST<T>
 {
-    private Node<T> root;
+    private GenericNode<T> root;
     private final Evaluator<T> isEqual;
     private final Evaluator<T> lessThan;
     private final Evaluator<T> moreThan;
@@ -29,9 +29,9 @@ abstract class GenericBST<T>
         root = insert(root, value);
     }
 
-    private Node<T> insert(Node<T> parent, T value)
+    private GenericNode<T> insert(GenericNode<T> parent, T value)
     {
-        if(Objects.isNull(parent)) return new Node<>(value);
+        if(Objects.isNull(parent)) return new GenericNode<>(value);
 
         if(moreThan.eval(parent.getValue(), value)) parent.setLeft(insert(parent.getLeft(), value));
         else if(lessThan.eval(parent.getValue(), value)) parent.setRight(insert(parent.getRight(), value));
@@ -45,7 +45,7 @@ abstract class GenericBST<T>
 
     private void delete(T value)
     {
-        Node<T> parent = findParent(root, value);
+        GenericNode<T> parent = findParent(root, value);
         if(Objects.nonNull(parent))
         {
             if(moreThan.eval(parent.getValue(), value)) parent.setRight(null);
@@ -53,11 +53,11 @@ abstract class GenericBST<T>
         }
     }
 
-    private Node<T> findParent(Node<T> root, T value)
+    private GenericNode<T> findParent(GenericNode<T> root, T value)
     {
         if(Objects.nonNull(root))
         {
-            Node<T> child = lessThan.eval(root.getValue(), value) ? root.getRight() : root.getLeft() ;
+            GenericNode<T> child = lessThan.eval(root.getValue(), value) ? root.getRight() : root.getLeft() ;
             if(Objects.nonNull(child))
             {
                 if(isEqual.eval(child.getValue(), value)) return root;
@@ -67,11 +67,11 @@ abstract class GenericBST<T>
         return null;
     }
 
-    private Node<T> find(Node<T> root, T value)
+    private GenericNode<T> find(GenericNode<T> root, T value)
     {
         if(Objects.nonNull(root))
         {
-            Node<T> child = lessThan.eval(root.getValue(), value) ? root.getRight() : root.getLeft() ;
+            GenericNode<T> child = lessThan.eval(root.getValue(), value) ? root.getRight() : root.getLeft() ;
             if(Objects.nonNull(child))
             {
                 if(isEqual.eval(child.getValue(), value)) return child;
@@ -101,7 +101,7 @@ abstract class GenericBST<T>
         out.println("================================== END PRINT BINARY SEARCH TREE ==================================");
     }
 
-    private void printBST(String text, Node<T> root)
+    private void printBST(String text, GenericNode<T> root)
     {
         if(Objects.nonNull(root))
         {
@@ -133,7 +133,7 @@ abstract class GenericBST<T>
         return Objects.nonNull(root) && validate(root, value);
     }
 
-    private boolean validate(Node<T> root, T value)
+    private boolean validate(GenericNode<T> root, T value)
     {
         if(Objects.isNull(root)) return false;
         if(root.getValue() == value) return true;
