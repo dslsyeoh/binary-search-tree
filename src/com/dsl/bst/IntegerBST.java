@@ -12,7 +12,7 @@ class IntegerBST extends GenericBST<Integer>
 {
     IntegerBST()
     {
-        super(Integer::equals, (source, target) -> source < target, (source, target) -> source > target);
+        super(Integer::equals, (source, target) -> source > target);
     }
 
     @Override
