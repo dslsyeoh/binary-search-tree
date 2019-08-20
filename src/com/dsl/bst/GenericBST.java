@@ -36,6 +36,7 @@ abstract class GenericBST<T>
     {
         if(Objects.isNull(parent)) return new GenericNode<>(value);
 
+        if(isEqual.eval(parent.getValue(), value)) return parent;
         if(moreThan.eval(parent.getValue(), value)) parent.setLeft(insert(parent.getLeft(), value));
         else if(lessThan.eval(parent.getValue(), value)) parent.setRight(insert(parent.getRight(), value));
         return parent;
