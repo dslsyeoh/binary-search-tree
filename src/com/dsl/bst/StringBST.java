@@ -12,7 +12,7 @@ class StringBST extends GenericBST<String>
 {
     StringBST()
     {
-        super(String::equals, (source, target) -> source.compareToIgnoreCase(target) < 0, (source, target) -> source.compareToIgnoreCase(target) > 0);
+        super((source, target) -> source.compareToIgnoreCase(target) == 0, (source, target) -> source.compareToIgnoreCase(target) < 0, (source, target) -> source.compareToIgnoreCase(target) > 0);
     }
 
     @Override
