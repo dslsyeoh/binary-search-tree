@@ -12,13 +12,11 @@ abstract class GenericBST<T>
 {
     private GenericNode<T> root;
     private final Evaluator<T> isEqual;
-    private final Evaluator<T> lessThan;
     private final Evaluator<T> moreThan;
 
-    GenericBST(Evaluator<T> isEqual, Evaluator<T> lessThan, Evaluator<T> moreThan)
+    GenericBST(Evaluator<T> isEqual, Evaluator<T> moreThan)
     {
         this.isEqual = isEqual;
-        this.lessThan = lessThan;
         this.moreThan = moreThan;
     }
 
@@ -38,7 +36,7 @@ abstract class GenericBST<T>
 
         if(isEqual.eval(root.getValue(), value)) return root;
         if(moreThan.eval(root.getValue(), value)) root.setLeft(insert(root.getLeft(), value));
-        else if(lessThan.eval(root.getValue(), value)) root.setRight(insert(root.getRight(), value));
+        else root.setRight(insert(root.getRight(), value));
         return root;
     }
 
@@ -61,7 +59,7 @@ abstract class GenericBST<T>
     {
         if(Objects.nonNull(root))
         {
-            GenericNode<T> leaf = lessThan.eval(root.getValue(), value) ? root.getRight() : root.getLeft() ;
+            GenericNode<T> leaf = moreThan.eval(root.getValue(), value) ? root.getLeft() : root.getRight() ;
             if(Objects.nonNull(leaf))
             {
                 if(isEqual.eval(leaf.getValue(), value)) return root;
@@ -75,7 +73,7 @@ abstract class GenericBST<T>
     {
         if(Objects.nonNull(root))
         {
-            GenericNode<T> leaf = lessThan.eval(root.getValue(), value) ? root.getRight() : root.getLeft() ;
+            GenericNode<T> leaf = moreThan.eval(root.getValue(), value) ? root.getLeft() : root.getRight() ;
             if(Objects.nonNull(leaf))
             {
                 if(isEqual.eval(leaf.getValue(), value)) return leaf;
