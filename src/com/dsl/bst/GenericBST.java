@@ -71,7 +71,7 @@ abstract class GenericBST<T>
         return null;
     }
 
-    private GenericNode<T> find(GenericNode<T> root, T value)
+    private GenericNode<T> findLeaf(GenericNode<T> root, T value)
     {
         if(Objects.nonNull(root))
         {
@@ -79,7 +79,7 @@ abstract class GenericBST<T>
             if(Objects.nonNull(leaf))
             {
                 if(isEqual.eval(leaf.getValue(), value)) return leaf;
-                return find(leaf, value);
+                return findLeaf(leaf, value);
             }
         }
         return null;
@@ -93,7 +93,7 @@ abstract class GenericBST<T>
     void print(T value)
     {
         System.out.println("================================= BEGIN PRINT BINARY SEARCH TREE =================================");
-        printBST("root", find(root, value));
+        printBST("root", findLeaf(root, value));
         System.out.println("================================== END PRINT BINARY SEARCH TREE ==================================");
 
     }
