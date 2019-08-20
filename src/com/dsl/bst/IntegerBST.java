@@ -21,7 +21,7 @@ class IntegerBST extends GenericBST<Integer>
         System.out.println("\n========================================= BEGIN BST FOR INTEGER DEMO =========================================");
 
         // construct binary search tree
-        List<Integer> bst = Arrays.asList(10, 1, 12, 5, 2, 11, 50, 30, 60, 29, 50, 70, 62, 1, 8, 6, 9, 7, 9, 10);
+        List<Integer> bst = Arrays.asList(10, 1, 12, 5, 2, 11, 50, 30, 60, 29, 50, 70, 62, 1, 8, 6, 9, 7, 9, 10, 0);
         constructBST(bst);
 
         // print initial binary search tree
