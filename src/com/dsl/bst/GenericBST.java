@@ -22,9 +22,9 @@ abstract class GenericBST<T>
         this.moreThan = moreThan;
     }
 
-    void constructBST(List<T> bt)
+    void constructBST(List<T> bst)
     {
-        bt.forEach(this::insert);
+        bst.forEach(this::insert);
     }
 
     void insert(T value)
@@ -32,14 +32,14 @@ abstract class GenericBST<T>
         root = insert(root, value);
     }
 
-    private GenericNode<T> insert(GenericNode<T> parent, T value)
+    private GenericNode<T> insert(GenericNode<T> root, T value)
     {
-        if(Objects.isNull(parent)) return new GenericNode<>(value);
+        if(Objects.isNull(root)) return new GenericNode<>(value);
 
-        if(isEqual.eval(parent.getValue(), value)) return parent;
-        if(moreThan.eval(parent.getValue(), value)) parent.setLeft(insert(parent.getLeft(), value));
-        else if(lessThan.eval(parent.getValue(), value)) parent.setRight(insert(parent.getRight(), value));
-        return parent;
+        if(isEqual.eval(root.getValue(), value)) return root;
+        if(moreThan.eval(root.getValue(), value)) root.setLeft(insert(root.getLeft(), value));
+        else if(lessThan.eval(root.getValue(), value)) root.setRight(insert(root.getRight(), value));
+        return root;
     }
 
     void delete(List<T> nodes)
@@ -49,7 +49,7 @@ abstract class GenericBST<T>
 
     private void delete(T value)
     {
-        GenericNode<T> parent = findParent(root, value);
+        GenericNode<T> parent = findRoot(root, value);
         if(Objects.nonNull(parent))
         {
             if(moreThan.eval(parent.getValue(), value)) parent.setRight(null);
@@ -57,7 +57,7 @@ abstract class GenericBST<T>
         }
     }
 
-    private GenericNode<T> findParent(GenericNode<T> root, T value)
+    private GenericNode<T> findRoot(GenericNode<T> root, T value)
     {
         if(Objects.nonNull(root))
         {
@@ -65,7 +65,7 @@ abstract class GenericBST<T>
             if(Objects.nonNull(child))
             {
                 if(isEqual.eval(child.getValue(), value)) return root;
-                return findParent(child, value);
+                return findRoot(child, value);
             }
         }
         return null;
@@ -75,11 +75,11 @@ abstract class GenericBST<T>
     {
         if(Objects.nonNull(root))
         {
-            GenericNode<T> child = lessThan.eval(root.getValue(), value) ? root.getRight() : root.getLeft() ;
-            if(Objects.nonNull(child))
+            GenericNode<T> leaf = lessThan.eval(root.getValue(), value) ? root.getRight() : root.getLeft() ;
+            if(Objects.nonNull(leaf))
             {
-                if(isEqual.eval(child.getValue(), value)) return child;
-                return find(child, value);
+                if(isEqual.eval(leaf.getValue(), value)) return leaf;
+                return find(leaf, value);
             }
         }
         return null;
