@@ -10,7 +10,7 @@ Functionality
 5. Print BST in specific node
 6. Bulk validate BST
 
-21/08/2019 Updated
+Update in 21/08/2019
 -
 1. Introduce GenericBST to support multiple types
 2. Introduce GenericNode to support multiple types
