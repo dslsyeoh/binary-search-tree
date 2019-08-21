@@ -25,13 +25,17 @@ class IntegerBST extends GenericBST<Integer>
         constructBST(bst);
 
         // print initial binary search tree
+        System.out.println("================================= BEGIN PRINT INITIAL BINARY SEARCH TREE =================================");
         print();
+        System.out.println("================================== END PRINT INITIAL BINARY SEARCH TREE ==================================");
 
         // insert node into binary search tree
         insert(72);
 
         // print binary search tree after insertions
+        System.out.println("================================= BEGIN PRINT INSERTION BINARY SEARCH TREE =================================");
         print();
+        System.out.println("================================== END PRINT INSERTION BINARY SEARCH TREE ==================================");
 
         // initialize inputs to validate node in binary search tree
         List<Integer> validateNodes = Arrays.asList(11, 60, 20, 21, 50, 30);
@@ -40,16 +44,21 @@ class IntegerBST extends GenericBST<Integer>
         validate(validateNodes);
 
         // initialize inputs to delete node in binary search tree
-        List<Integer> deleteNodes = Arrays.asList(10, 60);
+        List<Integer> deleteNodes = Arrays.asList(11, 60);
 
         // delete nodes in binary search tree
         delete(deleteNodes);
 
         // print binary search tree after deletions
+        System.out.println("================================= BEGIN PRINT DELETION BINARY SEARCH TREE =================================");
         print();
+        System.out.println("================================== END PRINT DELETION BINARY SEARCH TREE ==================================");
 
         // print binary search tree from specific node
+        System.out.println("================================= BEGIN PRINT SPECIFIC NODE IN BINARY SEARCH TREE =================================");
         print(12);
+        System.out.println("================================== END PRINT SPECIFIC NODE IN  BINARY SEARCH TREE ==================================");
+
         System.out.println("=========================================== END BST FOR INTEGER DEMO ===========================================\n");
     }
 }
