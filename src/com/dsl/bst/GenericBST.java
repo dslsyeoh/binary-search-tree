@@ -47,24 +47,29 @@ abstract class GenericBST<T>
 
     private void delete(T value)
     {
-        GenericNode<T> parent = findRoot(root, value);
-        if(Objects.nonNull(parent))
+        if(Objects.nonNull(root))
         {
-            if(moreThan.eval(parent.getValue(), value)) parent.setRight(null);
-            else parent.setLeft(null);
+            if(isEqual.eval(root.getValue(), value))
+            {
+                root = null;
+                return;
+            }
+            GenericNode<T> parent = findRoot(root, value);
+            if(Objects.nonNull(parent))
+            {
+                if(moreThan.eval(parent.getValue(), value)) parent.setLeft(null);
+                else parent.setRight(null);
+            }
         }
     }
 
     private GenericNode<T> findRoot(GenericNode<T> root, T value)
     {
-        if(Objects.nonNull(root))
+        GenericNode<T> leaf = moreThan.eval(root.getValue(), value) ? root.getLeft() : root.getRight() ;
+        if(Objects.nonNull(leaf))
         {
-            GenericNode<T> leaf = moreThan.eval(root.getValue(), value) ? root.getLeft() : root.getRight() ;
-            if(Objects.nonNull(leaf))
-            {
-                if(isEqual.eval(leaf.getValue(), value)) return root;
-                return findRoot(leaf, value);
-            }
+            if(isEqual.eval(leaf.getValue(), value)) return root;
+            return findRoot(leaf, value);
         }
         return null;
     }
@@ -90,17 +95,12 @@ abstract class GenericBST<T>
 
     void print(T value)
     {
-        System.out.println("================================= BEGIN PRINT BINARY SEARCH TREE =================================");
         printBST("root", findLeaf(root, value));
-        System.out.println("================================== END PRINT BINARY SEARCH TREE ==================================");
-
     }
 
     private void printBST(String text)
     {
-        System.out.println("================================= BEGIN PRINT BINARY SEARCH TREE =================================");
         printBST(text, root);
-        System.out.println("================================== END PRINT BINARY SEARCH TREE ==================================");
     }
 
     private void printBST(String text, GenericNode<T> root)
