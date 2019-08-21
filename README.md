@@ -18,4 +18,9 @@ Update in 21/08/2019
 3. Introduce Evaluator
 4. Added BST String demo (initialize)
 
+Update in 22/08/2019
+-
+1. Implements insertions, deletions, validates and print for BST String
+2. Fix bug for deletions
+
 
