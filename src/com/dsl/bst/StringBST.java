@@ -47,6 +47,6 @@ class StringBST extends GenericBST<String>
         CustomLogger.log("Inorder traversal of binary tree after delete", this::print);
 
         // print binary search tree from specific node
-        CustomLogger.log("Inorder traversal of binary tree", this::print);
+        CustomLogger.log("Inorder traversal of binary tree", () -> print("demo"));
     }
 }
