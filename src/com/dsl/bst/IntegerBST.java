@@ -24,14 +24,14 @@ class IntegerBST extends GenericBST<Integer>
         CustomLogger.log(String.format("Construct %s into BST", bst.toString()), () -> constructBST(bst));
 
         // print initial binary search tree
-        CustomLogger.log("Inorder traversal of binary tree", this::print);
+        CustomLogger.log("Inorder traversal of binary tree", this::printInorder);
 
         // insert node into binary search tree
         CustomLogger.log("insert 72 into binary search tree", () -> insert(72));
 
 
         // print binary search tree after insertions
-        CustomLogger.log("Inorder traversal of binary tree after insert", this::print);
+        CustomLogger.log("Inorder traversal of binary tree after insert", this::printInorder);
 
         // initialize inputs to validate node in binary search tree
         List<Integer> validateNodes = Arrays.asList(11, 60, 20, 21, 50, 30);
@@ -46,9 +46,9 @@ class IntegerBST extends GenericBST<Integer>
         CustomLogger.log("delete nodes in binary search tree", () -> delete(deleteNodes));
 
         // print binary search tree after deletions
-        CustomLogger.log("Inorder traversal of binary tree after delete", this::print);
+        CustomLogger.log("Inorder traversal of binary tree after delete", this::printInorder);
 
         // print binary search tree from specific node
-        CustomLogger.log("Inorder traversal of binary tree", () -> print(12));
+        CustomLogger.log("Inorder traversal of binary tree", () -> printInorder(12));
     }
 }
