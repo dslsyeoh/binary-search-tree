@@ -23,4 +23,8 @@ Update in 22/08/2019
 1. Implements insertions, deletions, validates and print for BST String
 2. Fix bug for deletions
 
+Update in 23/08/2019
+-
+1. Add custom log for time elapsed for method call.
+
 
