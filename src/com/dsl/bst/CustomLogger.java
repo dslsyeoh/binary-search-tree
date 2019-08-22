@@ -14,11 +14,9 @@ public class CustomLogger
 
     static void log(String message, Runnable runnable)
     {
-        System.out.println(String.format("========================================= BEGIN %s =========================================", message));
         Instant start = Instant.now();
         runnable.run();
         Instant end = Instant.now();
-        System.out.println(String.format("Time taken for %s: %d milliseconds", message, Duration.between(start, end).toMillis()));
-        System.out.println(String.format("========================================== END %s ==========================================", message));
+        System.out.println(String.format("Time taken for %s: %d milliseconds" + "\n", message, Duration.between(start, end).toMillis()));
     }
 }
