@@ -20,33 +20,33 @@ class StringBST extends GenericBST<String>
     {
         // construct binary search tree
         List<String> bst = Arrays.asList("this", "is", "demo", "binary", "search", "tree", "in", "string", "throne", "trex", "is");
-        CustomLogger.log("INITIAL BTS", () -> constructBST(bst));
+        CustomLogger.log(String.format("Construct %s into BST", bst.toString()), () -> constructBST(bst));
 
         // print initial binary search tree
-        CustomLogger.log("PRINT INITIAL BST", this::print);
+        CustomLogger.log("Inorder traversal of binary tree", this::print);
 
         // insert node into binary search tree
-        CustomLogger.log("INSERT zebra INTO BST", () -> insert("zebra"));
+        CustomLogger.log("insert zebra into binary search tree", () -> insert("zebra"));
 
         // print search tree after insertions
-        CustomLogger.log("PRINT BST AFTER INSERT", this::print);
+        CustomLogger.log("Inorder traversal of binary tree after insert", this::print);
 
         // initialize inputs to validate node in binary search tree
         List<String> validateNodes = Arrays.asList("demo", "binary", "gamer", "how", "throne", "trex");
 
         // validate inputs from binary search tree
-        CustomLogger.log("VALIDATE BST", () -> validate(validateNodes));
+        CustomLogger.log("validate nodes in binary search tree", () -> validate(validateNodes));
 
         // initialize inputs to delete node in binary search tree
         List<String> deleteNodes = Arrays.asList("throne", "trex", "search");
 
         // delete nodes in binary search tree
-        CustomLogger.log("DELETE NODE IN BST", () -> delete(deleteNodes));
+        CustomLogger.log("delete nodes in binary search tree", () -> delete(deleteNodes));
 
         // print search tree after deletions
-        CustomLogger.log("PRINT BST AFTER DELETE", this::print);
+        CustomLogger.log("Inorder traversal of binary tree after delete", this::print);
 
         // print binary search tree from specific node
-        CustomLogger.log("PRINT SPECIFIC NODE IN BST", () -> print("demo"));
+        CustomLogger.log("Inorder traversal of binary tree", this::print);
     }
 }
