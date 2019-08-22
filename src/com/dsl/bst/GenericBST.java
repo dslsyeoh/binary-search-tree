@@ -5,6 +5,7 @@
 
 package com.dsl.bst;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -88,34 +89,8 @@ abstract class GenericBST<T>
         return null;
     }
 
-    void print()
-    {
-        printBST("root");
-    }
-
-    void print(T value)
-    {
-        printBST("root", findLeaf(root, value));
-    }
-
-    private void printBST(String text)
-    {
-        printBST(text, root);
-    }
-
-    private void printBST(String text, GenericNode<T> root)
-    {
-        if(Objects.nonNull(root))
-        {
-            System.out.println(String.format("%s=%s", text, root.getValue()));
-            printBST(text.concat(" left"), root.getLeft());
-            printBST(text.concat(" right"), root.getRight());
-        }
-    }
-
     void validate(List<T> validateNode)
     {
-        System.out.println("================================= BEGIN VALIDATE BINARY SEARCH TREE =================================");
         validateNode.forEach(node -> {
             if(node instanceof Integer)
             {
@@ -126,7 +101,6 @@ abstract class GenericBST<T>
                 System.out.println(String.format("Node in binary search tree has %s? %s", String.valueOf(node), hasNode(node) ? "Yes" : "No"));
             }
         });
-        System.out.println("================================== END VALIDATE BINARY SEARCH TREE ==================================");
 
     }
 
@@ -140,6 +114,30 @@ abstract class GenericBST<T>
         if(Objects.isNull(root)) return false;
         if(root.getValue() == value) return true;
         else return validate(root.getLeft(), value) || validate(root.getRight(), value);
+    }
+
+    void printInorder()
+    {
+        System.out.print("Inorder traversal: ");
+        print(root);
+        System.out.println();
+    }
+
+    void printInorder(T value)
+    {
+        System.out.print("Inorder traversal: ");
+        print(findLeaf(root, value));
+        System.out.println();
+    }
+
+    private void print(GenericNode<T> root)
+    {
+        if(Objects.nonNull(root))
+        {
+            print(root.getLeft());
+            System.out.print(root.getValue() + " ");
+            print(root.getRight());
+        }
     }
 
     public abstract void demo();
