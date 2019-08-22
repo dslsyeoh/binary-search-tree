@@ -10,7 +10,7 @@ public class BSTDemo
     public static void main(String[] args)
     {
         CustomLogger.log("BST INTEGER DEMO", () -> new IntegerBST().demo());
-        System.out.println();
+        System.out.println("===================================================================================================\n");
         CustomLogger.log("BST STRING DEMO", () -> new StringBST().demo());
     }
 }
