@@ -4,27 +4,28 @@ Binary search tree for Integer
 
 Functionality
 -
-1. Initialize construct BST
+1. Initialize binary search tree 
 2. Single/Bulk insertions
 3. Single/Bulk deletions
-4. Print BST
-5. Print BST in specific node
-6. Bulk validate BST
+4. Print binary search tree inorder
+5. Print specific node in binary search tree inorder 
+6. Bulk validate binary search tree
 
-Update in 21/08/2019
+Changes in 21/08/2019
 -
 1. Introduce GenericBST to support multiple types
 2. Introduce GenericNode to support multiple types
 3. Introduce Evaluator
-4. Added BST String demo (initialize)
+4. Added demo for binary search tree for String (initialize)
 
-Update in 22/08/2019
+Changes in 22/08/2019
 -
-1. Implements insertions, deletions, validates and print for BST String
+1. Implements insertions, deletions, validates and print for binary search tree for String
 2. Fix bug for deletions
 
-Update in 23/08/2019
+Changes in 23/08/2019
 -
-1. Add custom log for time elapsed for method call.
+1. Add custom log for time elapsed for method call
+2. Update to print binary search tree inorder
 
 
