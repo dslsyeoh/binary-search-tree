@@ -9,7 +9,8 @@ public class BSTDemo
 {
     public static void main(String[] args)
     {
-        new IntegerBST().demo();
-        new StringBST().demo();
+        CustomLogger.log("BST INTEGER DEMO", () -> new IntegerBST().demo());
+        System.out.println();
+        CustomLogger.log("BST STRING DEMO", () -> new StringBST().demo());
     }
 }

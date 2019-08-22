@@ -18,46 +18,35 @@ class StringBST extends GenericBST<String>
     @Override
     public void demo()
     {
-        System.out.println("\n========================================= BEGIN BST FOR STRING DEMO =========================================");
         // construct binary search tree
         List<String> bst = Arrays.asList("this", "is", "demo", "binary", "search", "tree", "in", "string", "throne", "trex", "is");
-        constructBST(bst);
+        CustomLogger.log("INITIAL BTS", () -> constructBST(bst));
 
         // print initial binary search tree
-        System.out.println("================================= BEGIN PRINT INITIAL BINARY SEARCH TREE =================================");
-        print();
-        System.out.println("================================== END PRINT INITIAL BINARY SEARCH TREE ==================================");
+        CustomLogger.log("PRINT INITIAL BST", this::print);
 
         // insert node into binary search tree
-        insert("zebra");
+        CustomLogger.log("INSERT zebra INTO BST", () -> insert("zebra"));
 
         // print search tree after insertions
-        System.out.println("================================= BEGIN PRINT INSERTION BINARY SEARCH TREE =================================");
-        print();
-        System.out.println("================================== END PRINT INSERTION BINARY SEARCH TREE ==================================");
+        CustomLogger.log("PRINT BST AFTER INSERT", this::print);
 
         // initialize inputs to validate node in binary search tree
         List<String> validateNodes = Arrays.asList("demo", "binary", "gamer", "how", "throne", "trex");
 
         // validate inputs from binary search tree
-        validate(validateNodes);
+        CustomLogger.log("VALIDATE BST", () -> validate(validateNodes));
 
         // initialize inputs to delete node in binary search tree
         List<String> deleteNodes = Arrays.asList("throne", "trex", "search");
 
         // delete nodes in binary search tree
-        delete(deleteNodes);
+        CustomLogger.log("DELETE NODE IN BST", () -> delete(deleteNodes));
 
         // print search tree after deletions
-        System.out.println("================================= BEGIN PRINT DELETION BINARY SEARCH TREE =================================");
-        print();
-        System.out.println("================================== END PRINT DELETION BINARY SEARCH TREE ==================================");
+        CustomLogger.log("PRINT BST AFTER DELETE", this::print);
 
         // print binary search tree from specific node
-        System.out.println("================================= BEGIN PRINT SPECIFIC NODE IN BINARY SEARCH TREE =================================");
-        print("demo");
-        System.out.println("================================== END PRINT SPECIFIC NODE IN  BINARY SEARCH TREE ==================================");
-
-        System.out.println("=========================================== END BST FOR STRING DEMO ===========================================\n");
+        CustomLogger.log("PRINT SPECIFIC NODE IN BST", () -> print("demo"));
     }
 }
