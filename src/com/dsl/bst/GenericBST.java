@@ -41,7 +41,6 @@ abstract class GenericBST<T>
         return root;
     }
 
-
     void update(T oldValue, T newValue)
     {
         if(isEqual.eval(oldValue, newValue)) return;
