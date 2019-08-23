@@ -31,9 +31,9 @@ class StringBST extends GenericBST<String>
         CustomLogger.log("update [tree] to [whale] in binary search tree", () -> update("tree", "whale"));
 
         // print binary search tree after update
-        CustomLogger.log("Inorder traversal of binary search tree after update", this::printInorder);
-        CustomLogger.log("Preorder traversal of binary search tree after update", this::printPreOrder);
-        CustomLogger.log("Postorder traversal of binary search tree after update", this::printPostOrder);
+        CustomLogger.log("Inorder traversal of binary search tree after update [tree] to [whale]", this::printInorder);
+        CustomLogger.log("Preorder traversal of binary search tree after update [tree] to [whale]", this::printPreOrder);
+        CustomLogger.log("Postorder traversal of binary search tree after update [tree] to [whale]", this::printPostOrder);
 
         // insert node into binary search tree
         CustomLogger.log("insert [zebra] into binary search tree", () -> insert("zebra"));
@@ -72,5 +72,11 @@ class StringBST extends GenericBST<String>
         CustomLogger.log("Inorder traversal of [demo] in binary search tree", () -> printInorder("demo"));
         CustomLogger.log("Preorder traversal of [demo] in binary search tree", () -> printPreOrder("demo"));
         CustomLogger.log("Postorder traversal of [demo] in binary search tree", () -> printPostOrder("demo"));
+
+        // update root in binary search tree
+        CustomLogger.log("update [this] to [renew] in binary search tree", () -> update("this", "renew"));
+
+        // print binary search tree after update root
+        CustomLogger.log("Inorder traversal of binary tree [this] to [renew]", this::printInorder);
     }
 }
