@@ -108,17 +108,17 @@ abstract class GenericBST<T>
         validateNode.forEach(node -> {
             if(node instanceof Integer)
             {
-                System.out.println(String.format("Node value %d in binary search tree? %s", (Integer)node, hasNode(node) ? "Yes" : "No"));
+                System.out.println(String.format("Node value %d in binary search tree? %s", (Integer)node, validate(node) ? "Yes" : "No"));
             }
             else if(node instanceof String)
             {
-                System.out.println(String.format("Node in binary search tree has %s? %s", String.valueOf(node), hasNode(node) ? "Yes" : "No"));
+                System.out.println(String.format("Node in binary search tree has %s? %s", String.valueOf(node), validate(node) ? "Yes" : "No"));
             }
         });
 
     }
 
-    private boolean hasNode(T value)
+    boolean validate(T value)
     {
         return Objects.nonNull(root) && validate(root, value);
     }
@@ -133,7 +133,7 @@ abstract class GenericBST<T>
 
     void printInorder()
     {
-        if(Objects.isNull(root))
+        if(Objects.nonNull(root))
         {
             System.out.print("Inorder traversal: ");
             inOrder(root);
@@ -147,7 +147,7 @@ abstract class GenericBST<T>
 
     void printInorder(T value)
     {
-        if(Objects.isNull(root))
+        if(Objects.nonNull(root))
         {
             System.out.print("Inorder traversal: ");
             inOrder(findLeaf(root, value));
@@ -171,7 +171,7 @@ abstract class GenericBST<T>
 
     void printPreOrder()
     {
-        if(Objects.isNull(root))
+        if(Objects.nonNull(root))
         {
             System.out.print("Preorder traversal: ");
             preOrder(root);
@@ -185,7 +185,7 @@ abstract class GenericBST<T>
 
     void printPreOrder(T value)
     {
-        if(Objects.isNull(root))
+        if(Objects.nonNull(root))
         {
             System.out.print("Preorder traversal: ");
             preOrder(findLeaf(root, value));
@@ -209,7 +209,7 @@ abstract class GenericBST<T>
 
     void printPostOrder()
     {
-        if(Objects.isNull(root))
+        if(Objects.nonNull(root))
         {
             System.out.print("Postorder traversal: ");
             postOrder(root);
@@ -223,7 +223,7 @@ abstract class GenericBST<T>
 
     void printPostOrder(T value)
     {
-        if(Objects.isNull(root))
+        if(Objects.nonNull(root))
         {
             System.out.print("Postorder traversal: ");
             postOrder(findLeaf(root, value));
