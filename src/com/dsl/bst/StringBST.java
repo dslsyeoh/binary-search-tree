@@ -24,12 +24,16 @@ class StringBST extends GenericBST<String>
 
         // print initial binary search tree
         CustomLogger.log("Inorder traversal of binary tree", this::printInorder);
+        CustomLogger.log("Preorder traversal of binary tree after insert", this::printPreOrder);
+        CustomLogger.log("Postorder traversal of binary tree after insert", this::printPostOrder);
 
         // insert node into binary search tree
         CustomLogger.log("insert zebra into binary search tree", () -> insert("zebra"));
 
         // print search tree after insertions
-        CustomLogger.log("Inorder traversal of binary tree after insert", this::printInorder);
+        CustomLogger.log("Inorder traversal of binary tree", this::printInorder);
+        CustomLogger.log("Preorder traversal of binary tree after insert", this::printPreOrder);
+        CustomLogger.log("Postorder traversal of binary tree after insert", this::printPostOrder);
 
         // initialize inputs to validate node in binary search tree
         List<String> validateNodes = Arrays.asList("demo", "binary", "gamer", "how", "throne", "trex");
