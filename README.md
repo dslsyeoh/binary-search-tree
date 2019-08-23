@@ -7,9 +7,10 @@ Functionality
 1. Initialize binary search tree 
 2. Single/Bulk insertions
 3. Single/Bulk deletions
+4. Update binary search tree
 4. Print binary search tree inorder
 5. Print specific node in binary search tree inorder 
-6. Bulk validate binary search tree
+6. Single/Bulk validate binary search tree
 
 Changes in 21/08/2019
 -
@@ -33,3 +34,4 @@ Changes in 23/08/2019
 1. Support print preorder and postorder for binary search tree
 2. Reduce unnecessary method call
 3. Support update for binary search tree
+4. Support single delete and validate binary search tree
