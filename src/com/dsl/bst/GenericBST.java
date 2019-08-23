@@ -244,7 +244,6 @@ abstract class GenericBST<T>
         }
     }
 
-
     private void drop(GenericNode<T> parent, T value)
     {
         if(Objects.nonNull(parent))
