@@ -5,7 +5,6 @@
 
 package com.dsl.bst;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -44,20 +43,11 @@ abstract class GenericBST<T>
 
     void update(T oldValue, T newValue)
     {
-//        GenericNode<T> parent = findRoot(root, oldValue);
-//        GenericNode<T> leaf = findLeaf(root, oldValue);
-//        if(Objects.nonNull(parent) && Objects.nonNull(leaf)) constructBST(renewRoot(oldValue, newValue, parent, leaf));
-    }
+        if(isEqual.eval(oldValue, newValue) || root.getValue() == newValue) return;
 
-    private List<T> renewRoot(T oldValue, T newValue, GenericNode<T> parent, GenericNode<T> leaf)
-    {
-//        List<T> newBST = new ArrayList<>();
-//        newBST.add(newValue);
-//        regenerate(newBST, leaf, oldValue);
-//        System.out.println(newBST);
-//        resetChildren(parent);
-//        return newBST;
-        return new ArrayList<>();
+        GenericNode<T> parent = findRoot(root, oldValue);
+        drop(parent, newValue);
+        insert(newValue);
     }
 
     void delete(List<T> nodes)
@@ -210,24 +200,13 @@ abstract class GenericBST<T>
     }
 
 
-    private void resetChildren(GenericNode<T> parent)
+    private void drop(GenericNode<T> parent, T value)
     {
-//        parent.setLeft(null);
-//        parent.setRight(null);
-    }
-
-    private List<T> regenerate(List<T> newBST, GenericNode<T> root, T oldValue)
-    {
-//        if(newBST.isEmpty()) new ArrayList<>();
-//
-//        if(Objects.nonNull(root))
-//        {
-//            if(!isEqual.eval(root.getValue(), oldValue)) newBST.add(root.getValue());
-//            regenerate(newBST, root.getLeft(), root.getValue());
-//            regenerate(newBST, root.getRight(), root.getValue());
-//        }
-//        return newBST;
-        return new ArrayList<>();
+        if(Objects.nonNull(parent))
+        {
+            if(moreThan.eval(parent.getValue(), value)) parent.setLeft(null);
+            else parent.setRight(null);
+        }
     }
 
     public abstract void demo();
