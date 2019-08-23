@@ -28,11 +28,8 @@ Changes in 23/08/2019
 -
 1. Add custom log for time elapsed for method call
 2. Update to print binary search tree inorder
-
-Changes in 23/08/2019
--
-1. Support print preorder and postorder for binary search tree
-2. Reduce unnecessary method call
+3. Support print preorder and postorder for binary search tree
+4. Reduce unnecessary method call
 
 Changes in 24/08/2019
 -
