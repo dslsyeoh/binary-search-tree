@@ -32,9 +32,9 @@ class IntegerBST extends GenericBST<Integer>
         CustomLogger.log("update 70 to 72 in binary search tree", () -> update(70, 72));
 
         // print binary search tree after update
-        CustomLogger.log("Inorder traversal of binary tree after insert", this::printInorder);
-        CustomLogger.log("Preorder traversal of binary tree after insert", this::printPreOrder);
-        CustomLogger.log("Postorder traversal of binary tree after insert", this::printPostOrder);
+        CustomLogger.log("Inorder traversal of binary tree after update", this::printInorder);
+        CustomLogger.log("Preorder traversal of binary tree after update", this::printPreOrder);
+        CustomLogger.log("Postorder traversal of binary tree after update", this::printPostOrder);
 
         // insert node into binary search tree
         CustomLogger.log("insert 73 into binary search tree", () -> insert(73));
@@ -66,9 +66,9 @@ class IntegerBST extends GenericBST<Integer>
         CustomLogger.log("delete nodes in binary search tree", () -> delete(deleteNodes));
 
         // print binary search tree after delete
-        CustomLogger.log("Inorder traversal of binary tree after insert", this::printInorder);
-        CustomLogger.log("Preorder traversal of binary tree after insert", this::printPreOrder);
-        CustomLogger.log("Postorder traversal of binary tree after insert", this::printPostOrder);
+        CustomLogger.log("Inorder traversal of binary tree after delete", this::printInorder);
+        CustomLogger.log("Preorder traversal of binary tree after delete", this::printPreOrder);
+        CustomLogger.log("Postorder traversal of binary tree after delete", this::printPostOrder);
 
         // print binary search tree from specific node
         CustomLogger.log("Inorder traversal of binary tree", () -> printInorder(12));
