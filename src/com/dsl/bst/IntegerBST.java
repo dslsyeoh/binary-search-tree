@@ -29,7 +29,7 @@ class IntegerBST extends GenericBST<Integer>
         CustomLogger.log("Postorder traversal of binary search tree", this::printPostOrder);
 
         // update node in binary search tree
-        CustomLogger.log("update 70 to 72 in binary search tree", () -> update(70, 72));
+        CustomLogger.log("update [70] to [72] in binary search tree", () -> update(70, 72));
 
         // print binary search tree after update
         CustomLogger.log("Inorder traversal of binary search tree after update", this::printInorder);
@@ -37,12 +37,12 @@ class IntegerBST extends GenericBST<Integer>
         CustomLogger.log("Postorder traversal of binary search tree after update", this::printPostOrder);
 
         // insert node into binary search tree
-        CustomLogger.log("insert 73 into binary search tree", () -> insert(73));
+        CustomLogger.log("insert [73] into binary search tree", () -> insert(73));
 
         // print binary search tree after insert
-        CustomLogger.log("Inorder traversal of binary search tree after insert", this::printInorder);
-        CustomLogger.log("Preorder traversal of binary search tree after insert", this::printPreOrder);
-        CustomLogger.log("Postorder traversal of binary search tree after insert", this::printPostOrder);
+        CustomLogger.log("Inorder traversal of binary search tree after insert [73]", this::printInorder);
+        CustomLogger.log("Preorder traversal of binary search tree after insert [73]", this::printPreOrder);
+        CustomLogger.log("Postorder traversal of binary search tree after insert [73]", this::printPostOrder);
 
         // initialize inputs to validate node in binary search tree
         List<Integer> validateNodes = Arrays.asList(11, 60, 20, 21, 50, 82);
@@ -51,7 +51,7 @@ class IntegerBST extends GenericBST<Integer>
         CustomLogger.log(String.format("validate %s in binary search tree", validateNodes.toString()), () -> validate(validateNodes));
 
         // update node in binary search tree
-        CustomLogger.log("update 72 to 82 in binary search tree", () -> update(72, 82));
+        CustomLogger.log("update [72] to [82] in binary search tree", () -> update(72, 82));
 
         // initialize inputs to validate node in binary search tree
         List<Integer> validateNodes2 = Arrays.asList(11, 60, 20, 21, 72, 82);
@@ -66,13 +66,13 @@ class IntegerBST extends GenericBST<Integer>
         CustomLogger.log(String.format("delete %s in binary search tree", deleteNodes.toString()), () -> delete(deleteNodes));
 
         // print binary search tree after delete
-        CustomLogger.log("Inorder traversal of binary search tree after delete", this::printInorder);
-        CustomLogger.log("Preorder traversal of binary search tree after delete", this::printPreOrder);
-        CustomLogger.log("Postorder traversal of binary search tree after delete", this::printPostOrder);
+        CustomLogger.log("Inorder traversal of binary search tree after delete [11, 60]", this::printInorder);
+        CustomLogger.log("Preorder traversal of binary search tree after delete [11, 60]", this::printPreOrder);
+        CustomLogger.log("Postorder traversal of binary search tree after delete [11, 60]", this::printPostOrder);
 
         // print binary search tree from specific node
-        CustomLogger.log("Inorder traversal of 12 in binary search tree", () -> printInorder(12));
-        CustomLogger.log("Preorder traversal of 12 in binary search tree", () -> printPreOrder(12));
-        CustomLogger.log("Postorder traversal of 12 in binary search tree", () -> printPostOrder(12));
+        CustomLogger.log("Inorder traversal of [12] in binary search tree", () -> printInorder(12));
+        CustomLogger.log("Preorder traversal of [12] in binary search tree", () -> printPreOrder(12));
+        CustomLogger.log("Postorder traversal of [12] in binary search tree", () -> printPostOrder(12));
     }
 }
