@@ -10,6 +10,7 @@ import java.util.Objects;
 
 abstract class GenericBST<T>
 {
+    private static final String ROOT_NOT_FOUND = "Root not found";
     private GenericNode<T> root;
     private final Evaluator<T> isEqual;
     private final Evaluator<T> moreThan;
@@ -59,7 +60,7 @@ abstract class GenericBST<T>
         nodes.forEach(this::delete);
     }
 
-    private void delete(T value)
+    void delete(T value)
     {
         if(Objects.nonNull(root))
         {
@@ -132,16 +133,30 @@ abstract class GenericBST<T>
 
     void printInorder()
     {
-        System.out.print("Inorder traversal: ");
-        inOrder(root);
-        System.out.println();
+        if(Objects.isNull(root))
+        {
+            System.out.print("Inorder traversal: ");
+            inOrder(root);
+            System.out.println();
+        }
+        else
+        {
+            System.out.println(ROOT_NOT_FOUND);
+        }
     }
 
     void printInorder(T value)
     {
-        System.out.print("Inorder traversal: ");
-        inOrder(findLeaf(root, value));
-        System.out.println();
+        if(Objects.isNull(root))
+        {
+            System.out.print("Inorder traversal: ");
+            inOrder(findLeaf(root, value));
+            System.out.println();
+        }
+        else
+        {
+            System.out.println(ROOT_NOT_FOUND);
+        }
     }
 
     private void inOrder(GenericNode<T> root)
@@ -156,16 +171,30 @@ abstract class GenericBST<T>
 
     void printPreOrder()
     {
-        System.out.print("Preorder traversal: ");
-        preOrder(root);
-        System.out.println();
+        if(Objects.isNull(root))
+        {
+            System.out.print("Preorder traversal: ");
+            preOrder(root);
+            System.out.println();
+        }
+        else
+        {
+            System.out.println(ROOT_NOT_FOUND);
+        }
     }
 
     void printPreOrder(T value)
     {
-        System.out.print("Preorder traversal: ");
-        preOrder(findLeaf(root, value));
-        System.out.println();
+        if(Objects.isNull(root))
+        {
+            System.out.print("Preorder traversal: ");
+            preOrder(findLeaf(root, value));
+            System.out.println();
+        }
+        else
+        {
+            System.out.println(ROOT_NOT_FOUND);
+        }
     }
 
     private void preOrder(GenericNode<T> root)
@@ -180,18 +209,31 @@ abstract class GenericBST<T>
 
     void printPostOrder()
     {
-        System.out.print("Postorder traversal: ");
-        postOrder(root);
-        System.out.println();
+        if(Objects.isNull(root))
+        {
+            System.out.print("Postorder traversal: ");
+            postOrder(root);
+            System.out.println();
+        }
+        else
+        {
+            System.out.println(ROOT_NOT_FOUND);
+        }
     }
 
     void printPostOrder(T value)
     {
-        System.out.print("Postorder traversal: ");
-        postOrder(findLeaf(root, value));
-        System.out.println();
+        if(Objects.isNull(root))
+        {
+            System.out.print("Postorder traversal: ");
+            postOrder(findLeaf(root, value));
+            System.out.println();
+        }
+        else
+        {
+            System.out.println(ROOT_NOT_FOUND);
+        }
     }
-
 
     private void postOrder(GenericNode<T> root)
     {
