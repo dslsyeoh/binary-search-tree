@@ -32,3 +32,4 @@ Changes in 23/08/2019
 -
 1. Support print preorder and postorder for binary search tree
 2. Reduce unnecessary method call
+3. Support update for binary search tree
