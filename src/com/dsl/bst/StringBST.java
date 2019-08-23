@@ -27,30 +27,50 @@ class StringBST extends GenericBST<String>
         CustomLogger.log("Preorder traversal of binary tree after insert", this::printPreOrder);
         CustomLogger.log("Postorder traversal of binary tree after insert", this::printPostOrder);
 
+        // update node in binary search tree
+        CustomLogger.log("update [tree] to [whale] in binary search tree", () -> update("tree", "whale"));
+
+        // print binary search tree after update
+        CustomLogger.log("Inorder traversal of binary search tree after update", this::printInorder);
+        CustomLogger.log("Preorder traversal of binary search tree after update", this::printPreOrder);
+        CustomLogger.log("Postorder traversal of binary search tree after update", this::printPostOrder);
+
         // insert node into binary search tree
-        CustomLogger.log("insert zebra into binary search tree", () -> insert("zebra"));
+        CustomLogger.log("insert [zebra] into binary search tree", () -> insert("zebra"));
 
         // print search tree after insertions
-        CustomLogger.log("Inorder traversal of binary tree", this::printInorder);
-        CustomLogger.log("Preorder traversal of binary tree after insert", this::printPreOrder);
-        CustomLogger.log("Postorder traversal of binary tree after insert", this::printPostOrder);
+        CustomLogger.log("Inorder traversal of binary tree after insert [zebra]", this::printInorder);
+        CustomLogger.log("Preorder traversal of binary tree after insert [zebra]", this::printPreOrder);
+        CustomLogger.log("Postorder traversal of binary tree after insert [zebra]", this::printPostOrder);
 
         // initialize inputs to validate node in binary search tree
         List<String> validateNodes = Arrays.asList("demo", "binary", "gamer", "how", "throne", "trex");
 
         // validate inputs from binary search tree
-        CustomLogger.log("validate nodes in binary search tree", () -> validate(validateNodes));
+        CustomLogger.log(String.format("validate %s in binary search tree", validateNodes.toString()), () -> validate(validateNodes));
+
+        CustomLogger.log("insert [throne] into binary search tree", () -> insert("throne"));
+
+        // initialize inputs to validate node in binary search tree
+        List<String> validateNodes2 = Arrays.asList("demo", "binary", "gamer", "how", "throne", "trex");
+
+        // validate inputs from binary search tree
+        CustomLogger.log(String.format("validate %s in binary search tree", validateNodes.toString()), () -> validate(validateNodes2));
 
         // initialize inputs to delete node in binary search tree
-        List<String> deleteNodes = Arrays.asList("throne", "trex", "search");
+        List<String> deleteNodes = Arrays.asList("search", "zebra");
 
         // delete nodes in binary search tree
-        CustomLogger.log("delete nodes in binary search tree", () -> delete(deleteNodes));
+        CustomLogger.log(String.format("delete %s in binary search tree", deleteNodes.toString()), () -> delete(deleteNodes));
 
-        // print search tree after deletions
-        CustomLogger.log("Inorder traversal of binary tree after delete", this::printInorder);
+        // print binary search tree after delete
+        CustomLogger.log("Inorder traversal of binary search tree after delete [search, zebra]", this::printInorder);
+        CustomLogger.log("Preorder traversal of binary search tree after delete [search, zebra]", this::printPreOrder);
+        CustomLogger.log("Postorder traversal of binary search tree after delete [search, zebra]", this::printPostOrder);
 
         // print binary search tree from specific node
-        CustomLogger.log("Inorder traversal of binary tree", () -> printInorder("demo"));
+        CustomLogger.log("Inorder traversal of [demo] in binary search tree", () -> printInorder("demo"));
+        CustomLogger.log("Preorder traversal of [demo] in binary search tree", () -> printPreOrder("demo"));
+        CustomLogger.log("Postorder traversal of [demo] in binary search tree", () -> printPostOrder("demo"));
     }
 }
