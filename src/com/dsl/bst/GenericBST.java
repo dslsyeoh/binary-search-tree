@@ -43,8 +43,12 @@ abstract class GenericBST<T>
 
     void update(T oldValue, T newValue)
     {
-        if(isEqual.eval(oldValue, newValue) || root.getValue() == newValue) return;
-
+        if(isEqual.eval(oldValue, newValue)) return;
+        if(isEqual.eval(root.getValue(), oldValue))
+        {
+            root = new GenericNode<>(newValue);
+            return;
+        }
         GenericNode<T> parent = findRoot(root, oldValue);
         drop(parent, newValue);
         insert(newValue);
