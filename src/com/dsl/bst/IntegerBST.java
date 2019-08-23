@@ -63,7 +63,7 @@ class IntegerBST extends GenericBST<Integer>
         List<Integer> deleteNodes = Arrays.asList(11, 60);
 
         // delete nodes in binary search tree
-        CustomLogger.log(String.format("delete %s in binary search tree", deleteNodes.toString()), () -> delete(validateNodes2));
+        CustomLogger.log(String.format("delete %s in binary search tree", deleteNodes.toString()), () -> delete(deleteNodes));
 
         // print binary search tree after delete
         CustomLogger.log("Inorder traversal of binary search tree after delete", this::printInorder);
