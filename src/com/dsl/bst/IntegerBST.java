@@ -19,66 +19,96 @@ class IntegerBST extends GenericBST<Integer>
     @Override
     public void demo()
     {
-        // construct binary search tree
-        List<Integer> bst = Arrays.asList(10, 1, 12, 5, 2, 11, 50, 30, 60, 29, 50, 70, 62, 1, 8, 6, 9, 7, 9, 10, 0);
+        initialize();
+
+        updateNode(70, 72);
+
+        insertNode();
+
+        printNode(50);
+
+        validateNodes();
+
+        updateNode(72, 82);
+
+        validateNodes(Arrays.asList(11, 60, 20, 21, 72, 82));
+
+        deleteNodes();
+
+        updateNode(10, 100);
+    }
+
+    void initialize()
+    {
+        initialize(Arrays.asList(10, 1, 12, 5, 2, 11, 50, 30, 60, 29, 50, 70, 62, 1, 8, 6, 9, 7, 9, 10, 0));
+    }
+
+    void initialize(List<Integer> bst)
+    {
         CustomLogger.log(String.format("Construct %s into BST", bst.toString()), () -> constructBST(bst));
+        print("after initialize");
+    }
 
-//        // print initial binary search tree
-        CustomLogger.log("Inorder traversal of binary search tree", this::printInorder);
-        CustomLogger.log("Preorder traversal of binary search tree", this::printPreOrder);
-        CustomLogger.log("Postorder traversal of binary search tree", this::printPostOrder);
+    void insertNode()
+    {
+        insertNode(73);
+    }
 
-        // update node in binary search tree
-        CustomLogger.log("update [70] to [72] in binary search tree", () -> update(70, 72));
+    void insertNode(int value)
+    {
+        CustomLogger.log(String.format("insert [%d] into binary search tree", value), () -> insert(value));
+        print(String.format("after insert [%d]", value));
+    }
 
-        // print binary search tree after update
-        CustomLogger.log("Inorder traversal of binary search tree after update [70] to [72]", this::printInorder);
-        CustomLogger.log("Preorder traversal of binary search tree after update [70] to [72]", this::printPreOrder);
-        CustomLogger.log("Postorder traversal of binary search tree after update [70] to [72]", this::printPostOrder);
+    private void updateNode(int oldValue, int newValue)
+    {
+        CustomLogger.log(String.format("update [%d] to [%d] in binary search tree", oldValue, newValue), () -> update(oldValue, newValue));
+        print(String.format("after update [%d] to [%d]", oldValue, newValue));
+    }
 
-        // insert node into binary search tree
-        CustomLogger.log("insert [73] into binary search tree", () -> insert(73));
+    private void deleteNode(int value)
+    {
+        CustomLogger.log(String.format("delete [%d] in binary search tree", value), () -> delete(value));
+        print(String.format("after delete [%d]", value));
+    }
 
-        // print binary search tree after insert
-        CustomLogger.log("Inorder traversal of binary search tree after insert [73]", this::printInorder);
-        CustomLogger.log("Preorder traversal of binary search tree after insert [73]", this::printPreOrder);
-        CustomLogger.log("Postorder traversal of binary search tree after insert [73]", this::printPostOrder);
+    private void deleteNodes()
+    {
+        deleteNodes(Arrays.asList(11, 60));
+    }
 
-        // initialize inputs to validate node in binary search tree
-        List<Integer> validateNodes = Arrays.asList(11, 60, 20, 21, 50, 82);
-
-        // validate inputs from binary search tree
-        CustomLogger.log(String.format("validate %s in binary search tree", validateNodes.toString()), () -> validate(validateNodes));
-
-        // update node in binary search tree
-        CustomLogger.log("update [72] to [82] in binary search tree", () -> update(72, 82));
-
-        // initialize inputs to validate node in binary search tree
-        List<Integer> validateNodes2 = Arrays.asList(11, 60, 20, 21, 72, 82);
-
-        // validate inputs from binary search tree
-        CustomLogger.log(String.format("validate %s in binary search tree", validateNodes.toString()), () -> validate(validateNodes2));
-
-        // initialize inputs to delete node in binary search tree
-        List<Integer> deleteNodes = Arrays.asList(11, 60);
-
-        // delete nodes in binary search tree
+    private void deleteNodes(List<Integer> deleteNodes)
+    {
         CustomLogger.log(String.format("delete %s in binary search tree", deleteNodes.toString()), () -> delete(deleteNodes));
+        print(String.format("after delete %s", deleteNodes.toString()));
+    }
 
-        // print binary search tree after delete
-        CustomLogger.log("Inorder traversal of binary search tree after delete [11, 60]", this::printInorder);
-        CustomLogger.log("Preorder traversal of binary search tree after delete [11, 60]", this::printPreOrder);
-        CustomLogger.log("Postorder traversal of binary search tree after delete [11, 60]", this::printPostOrder);
+    private void validateNode(int value)
+    {
+        CustomLogger.log(String.format("validate [%d] in binary search tree", value), () -> validate(value));
+    }
 
-        // print binary search tree from specific node
-        CustomLogger.log("Inorder traversal of [12] in binary search tree", () -> printInorder(12));
-        CustomLogger.log("Preorder traversal of [12] in binary search tree", () -> printPreOrder(12));
-        CustomLogger.log("Postorder traversal of [12] in binary search tree", () -> printPostOrder(12));
+    private void validateNodes()
+    {
+        validate(Arrays.asList(11, 60, 20, 21, 50, 82));
+    }
 
-        // update root in binary search tree
-        CustomLogger.log("update [10] to [100] in binary search tree", () -> update(10, 100));
+    private void validateNodes(List<Integer> nodes)
+    {
+        CustomLogger.log(String.format("validate %s in binary search tree", nodes.toString()), () -> validate(nodes));
+    }
 
-        // print binary search tree after update root
-        CustomLogger.log("Inorder traversal of binary tree [10] to [100]", this::printInorder);
+    private void print(String description)
+    {
+        CustomLogger.log(String.format("Inorder traversal of binary search tree %s", description), this::printInorder);
+        CustomLogger.log(String.format("Preorder traversal of binary search tree %s", description), this::printPreOrder);
+        CustomLogger.log(String.format("Postorder traversal of binary search tree %s", description), this::printPostOrder);
+    }
+
+    private void printNode(int value)
+    {
+        CustomLogger.log(String.format("Inorder traversal of [%d] in binary search tree", value), () -> printInorder(value));
+        CustomLogger.log(String.format("Preorder traversal of [%d] in binary search tree", value), () -> printPreOrder(value));
+        CustomLogger.log(String.format("Postorder traversal of [%d] in binary search tree", value), () -> printPostOrder(value));
     }
 }
