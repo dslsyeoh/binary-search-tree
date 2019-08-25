@@ -5,6 +5,7 @@
 
 package com.dsl.bst;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -146,7 +147,7 @@ abstract class GenericBST<T>
 
     void printInorder(T value)
     {
-        if(Objects.nonNull(root))
+        if(Objects.nonNull(root) && validate(value))
         {
             System.out.print("Inorder traversal: ");
             inOrder(findLeaf(root, value));
@@ -184,7 +185,7 @@ abstract class GenericBST<T>
 
     void printPreOrder(T value)
     {
-        if(Objects.nonNull(root))
+        if(Objects.nonNull(root) && validate(value))
         {
             System.out.print("Preorder traversal: ");
             preOrder(findLeaf(root, value));
@@ -222,7 +223,7 @@ abstract class GenericBST<T>
 
     void printPostOrder(T value)
     {
-        if(Objects.nonNull(root))
+        if(Objects.nonNull(root) && validate(value))
         {
             System.out.print("Postorder traversal: ");
             postOrder(findLeaf(root, value));
@@ -251,6 +252,22 @@ abstract class GenericBST<T>
             if(moreThan.eval(parent.getValue(), value)) parent.setLeft(null);
             else parent.setRight(null);
         }
+    }
+
+    List<T> getValues()
+    {
+        return collect(root, new ArrayList<>());
+    }
+
+    private List<T> collect(GenericNode<T> root, List<T> values)
+    {
+        if(Objects.nonNull(root))
+        {
+            collect(root.getLeft(), values);
+            values.add(root.getValue());
+            collect(root.getRight(), values);
+        }
+        return values;
     }
 
     public abstract void demo();
