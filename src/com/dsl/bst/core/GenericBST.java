@@ -83,7 +83,7 @@ abstract class GenericBST<T>
 
     private GenericNode<T> findRoot(GenericNode<T> root, T value)
     {
-        GenericNode<T> leaf = moreThan.eval(root.getValue(), value) ? root.getLeft() : root.getRight() ;
+        GenericNode<T> leaf = moreThan.eval(root.getValue(), value) ? root.getLeft() : root.getRight();
         if(Objects.nonNull(leaf))
         {
             if(isEqual.eval(leaf.getValue(), value)) return root;
@@ -129,7 +129,7 @@ abstract class GenericBST<T>
     private boolean validate(GenericNode<T> root, T value)
     {
         if(Objects.isNull(root)) return false;
-        if(root.getValue() == value) return true;
+        if(isEqual.eval(root.getValue(), value)) return true;
         if(moreThan.eval(root.getValue(), value)) return validate(root.getLeft(), value);
         return validate(root.getRight(), value);
     }
@@ -266,10 +266,7 @@ abstract class GenericBST<T>
     {
         if(Objects.nonNull(root))
         {
-            if(predicate.test(root.getValue()))
-            {
-                result.add(root.getValue());
-            }
+            if(predicate.test(root.getValue())) result.add(root.getValue());
             search(root.getLeft(), predicate, result);
             search(root.getRight(), predicate, result);
         }
