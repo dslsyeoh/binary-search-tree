@@ -1,11 +1,10 @@
 /*
  * Author Steven Yeoh
- * Copyright (c) 2019. All rights reserved.
+ * Copyright (c) 2020. All rights reserved.
  */
 
 package com.dsl.bst.core;
 
-import com.dsl.bst.core.GenericBST;
 import com.dsl.bst.logging.CustomLogger;
 
 import java.util.Arrays;
@@ -14,7 +13,6 @@ import java.util.stream.Collectors;
 
 public class IntegerBST extends GenericBST<Integer>
 {
-
     public IntegerBST()
     {
         super(Integer::equals, (source, target) -> source > target);
